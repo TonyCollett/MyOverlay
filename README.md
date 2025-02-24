@@ -17,7 +17,12 @@ A Python application that creates an overlay window displaying the DatabaseName 
    - Edit `config.json` with your XML file path:
      ```json
      {
-         "xml_path": "path/to/your/xml/file.xml"
+         "xml_path": "path/to/your/xml/file.xml",
+         "xml_config": {
+             "root_node": "root",
+             "target_node": "DatabaseName",
+             "xpath": ".//DatabaseName"
+         }
      }
      ```
 
