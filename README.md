@@ -1,6 +1,6 @@
 # XML Overlay Application
 
-A Python application that creates an overlay window displaying the DatabaseName from a monitored XML file. The overlay stays on top of other windows and can be dragged around the screen.
+A Python application that creates an overlay window displaying XML Properties from a monitored XML file. The overlay stays on top of other windows and can be dragged around the screen.
 
 ## Setup
 
