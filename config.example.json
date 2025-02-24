@@ -1,0 +1,8 @@
+{
+    "xml_path": "C:\\path\\to\\your\\xml\\file.xml",
+    "xml_config": {
+        "root_node": "root",
+        "target_node": "DatabaseName",
+        "xpath": ".//DatabaseName"
+    }
+}
