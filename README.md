@@ -5,6 +5,7 @@ A Python application that creates an overlay window displaying the DatabaseName 
 ## Setup
 
 1. Install Python requirements:
+
    ```
    pip install PyQt5
    ```
@@ -17,12 +18,12 @@ A Python application that creates an overlay window displaying the DatabaseName 
    - Edit `config.json` with your XML file path:
      ```json
      {
-         "xml_path": "path/to/your/xml/file.xml",
-         "xml_config": {
-             "root_node": "root",
-             "target_node": "DatabaseName",
-             "xpath": ".//DatabaseName"
-         }
+       "xml_path": "path/to/your/xml/file.xml",
+       "xml_config": {
+         "root_node": "root",
+         "target_node": "DatabaseName",
+         "xpath": ".//DatabaseName"
+       }
      }
      ```
 
@@ -39,17 +40,14 @@ A Python application that creates an overlay window displaying the DatabaseName 
 
 ## Features
 
-- Displays DatabaseName from the monitored XML file
+- Displays XML properties from the monitored XML file
 - Overlay stays on top of other windows
 - Draggable window
 - System tray icon with options:
   - Show Overlay
   - Hide Overlay
+  - Increase Text Size (adjusts font size up to 72 points)
+  - Decrease Text Size (adjusts font size down to 8 points)
   - Quit
 - Close button appears when hovering over the overlay
 - Auto-updates when XML file changes
-
-## Notes
-
-- The config.json file is ignored by git to allow for different configurations per machine
-- Make sure the XML path in config.json points to a valid XML file containing a DatabaseName element

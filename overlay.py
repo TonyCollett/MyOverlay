@@ -12,6 +12,7 @@ class OverlayApp(QLabel):
         super().__init__()
         # Set minimum size
         # Close button
+        self.font_size = 20  # Track current font size
         self.close_button = QPushButton("X", self)
         self.close_button.setStyleSheet("""
             QPushButton {
@@ -65,7 +66,7 @@ class OverlayApp(QLabel):
         
         self.setMinimumSize(300, 40)
         self.setText("My Text")
-        self.setFont(QFont("Arial", 20, QFont.Bold))
+        self.setFont(QFont("Arial", self.font_size, QFont.Bold))
         self.setStyleSheet("color: white; background: transparent; padding: 25px 10px 10px 10px;")
         self.setAttribute(Qt.WA_TranslucentBackground)
         self.move(300, 200)  # Initial position
@@ -92,6 +93,13 @@ class OverlayApp(QLabel):
         show_action.triggered.connect(self.show_overlay)
         hide_action = tray_menu.addAction("Hide Overlay")
         hide_action.triggered.connect(self.hide)
+        
+        # Add text size controls
+        tray_menu.addSeparator()
+        increase_size = tray_menu.addAction("Increase Text Size")
+        increase_size.triggered.connect(self.increase_text_size)
+        decrease_size = tray_menu.addAction("Decrease Text Size")
+        decrease_size.triggered.connect(self.decrease_text_size)
         tray_menu.addSeparator()
         quit_action = tray_menu.addAction("Quit")
         quit_action.triggered.connect(self.quit_application)
@@ -117,6 +125,20 @@ class OverlayApp(QLabel):
         self.show()
         self.raise_()
         self.activateWindow()
+        
+    def increase_text_size(self):
+        self.font_size = min(72, self.font_size + 2)  # Maximum size of 72
+        self.update_font()
+        
+    def decrease_text_size(self):
+        self.font_size = max(8, self.font_size - 2)  # Minimum size of 8
+        self.update_font()
+        
+    def update_font(self):
+        font = self.font()
+        font.setPointSize(self.font_size)
+        self.setFont(font)
+        self.adjustSize()  # Adjust window size to fit new text size
     
     def quit_application(self):
         self.tray_icon.hide()
